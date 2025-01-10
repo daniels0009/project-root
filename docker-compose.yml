@@ -1,0 +1,42 @@
+  version: '3.3'
+
+  services:
+    frontend:
+      build: ./frontend
+      ports:
+        - "3000:3000"
+      volumes:
+        - ./frontend:/app
+        - /app/node_modules
+      environment:
+        - CHOKIDAR_USEPOLLING=true
+      user: "node"
+
+    api-gateway:
+      build: ./api-gateway
+      ports:
+        - "8081:8081"
+      depends_on:
+        - backend
+
+    backend:
+      build: ./backend
+      ports:
+        - "8080:8080"
+      environment:
+        SPRING_DATASOURCE_URL: mongodb://mongodb:27017/productdb
+      depends_on:
+        - mongodb
+
+    mongodb:
+      image: mongo
+      container_name: mongodb
+      ports:
+        - "27017:27017"
+      volumes:
+        - mongo-data:/data/db
+
+  volumes:
+    mongo-data:
+
+
