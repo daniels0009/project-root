@@ -75,47 +75,9 @@ Una vez que todos los servicios estén en funcionamiento:
   - Redirige las solicitudes entre el frontend y el backend.
   - Implementado con Spring Cloud Gateway.
 
-## Variables de Entorno
-
-El archivo `docker-compose.yml` ya incluye las configuraciones necesarias para las conexiones entre servicios. Sin embargo, si necesitas personalizarlas, puedes modificar las siguientes variables:
-
-- **MONGODB_HOST**: Nombre del host de MongoDB.
-- **MONGODB_PORT**: Puerto de MongoDB.
-- **API_GATEWAY_PORT**: Puerto del API Gateway.
-
-## Despliegue en un Servidor
-
-Para hacer accesible la aplicación desde cualquier lugar:
-
-1. Configura un servidor con acceso a internet.
-2. Instala Docker y Docker Compose en el servidor.
-3. Copia el proyecto al servidor y levanta los servicios:
-   ```bash
-   docker-compose up --build
-   ```
-4. Asegúrate de configurar el servidor para exponer los puertos correspondientes.
-
-## Comandos Útiles
-
-- Detener todos los contenedores:
-  ```bash
-  docker-compose down
-  ```
-
-- Ver logs de un servicio específico:
-  ```bash
-  docker-compose logs <servicio>
-  ```
-
-- Reconstruir contenedores sin cache:
-  ```bash
-  docker-compose build --no-cache
-  ```
 
 ## Autor
 
-Desarrollado por **Daniel S.** - [GitHub](https://github.com/daniels0009)
+Desarrollado por **Daniel Camargo Pepinosa.** - [GitHub](https://github.com/daniels0009)
 
----
 
-¡Gracias por usar este proyecto! No dudes en abrir un issue en GitHub si encuentras algún problema o tienes sugerencias para mejorar.
